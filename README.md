@@ -18,7 +18,7 @@ Jika Anda ingin berkontribusi pada proyek ini, silakan buat issue atau pull requ
 
 ## Lisensi
 
-Proyek ini dilisensikan di bawah MIT License. Lihat file [LICENSE](LICENSE) untuk detail lebih lanjut.
+Proyek ini dilisensikan di bawah Apache License. Lihat file [LICENSE](LICENSE) untuk detail lebih lanjut.
 
 ## Kontak
 
