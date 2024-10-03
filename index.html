@@ -178,7 +178,7 @@
                 <label for="memory">Memori Internal (GB):</label>
                 <input type="number" id="memory" min="16" required>
             </div>
-            <button type="submit">Roast Gue, Bro!</button>
+            <button type="submit">Roast Gue!</button>
         </form>
         <div id="roastingText"></div>
     </div>
@@ -220,26 +220,36 @@
     roastText += brandRoasts[brand] || "Merk ga jelas! Lu beli di pasar loak ya?";
     
     const chipsetRoasts = [
-        { keyword: "snapdragon 8 gen 2", roast: "Snapdragon 8 Gen 2? Canggih sih, tapi lu cuma pake buat TikTok doang kan?" },
-        { keyword: "snapdragon 8+ gen 1", roast: "Snapdragon 8+ Gen 1? Panas kali tuh, kayak otak lu pas mikir!" },
-        { keyword: "snapdragon 888", roast: "Snapdragon 888? Baterai abis secepat uang lu abis buat beli pulsa!" },
-        { keyword: "snapdragon 870", roast: "Snapdragon 870? Kamera malem? Gelap kayak masa depan lu!" },
-        { keyword: "snapdragon 765g", roast: "Snapdragon 765G? 5G sih, tapi main ML aja lag!" },
-        { keyword: "snapdragon 680", roast: "Snapdragon 680? Wi-Fi lemot kayak otak lu!" },
-        { keyword: "dimensity 9000+", roast: "Dimensity 9000+? Panas? Kayak lu abis lari maraton padahal cuma buka Facebook!" },
-        { keyword: "dimensity 8100", roast: "Dimensity 8100? AI-nya lebih pinter dari lu sih!" },
-        { keyword: "dimensity 1200", roast: "Dimensity 1200? 5G sih, tapi main PUBG kayak main di PowerPoint!" },
-        { keyword: "helio g95", roast: "Helio G95? Main game aja kayak masak gorengan, panas mampus!" },
-        { keyword: "helio g85", roast: "Helio G85? Overheat? Sekalian aja lu pake buat masak mie!" },
-        { keyword: "exynos 2200", roast: "Exynos 2200? Banyak bacot doang, aslinya ampas!" },
-        { keyword: "exynos 1280", roast: "Exynos 1280? Multitasking? Yang ada multi-crash!" },
-        { keyword: "kirin 9000", roast: "Kirin 9000? Pendingin? Ada, tapi cuma buat pajangan!" },
-        { keyword: "kirin 990", roast: "Kirin 990? Dulu top, sekarang flop kayak karir lu!" },
-        { keyword: "a16 bionic", roast: "A16 Bionic? Canggih sih, tapi sayang yang make goblok!" },
-        { keyword: "a15 bionic", roast: "A15 Bionic? Ngaku-ngaku kenceng, tapi buka YouTube aja nge-lag!" },
-        { keyword: "a14 bionic", roast: "A14 Bionic? Mahal sih, tapi lu tetep aja gaptek!" },
-        { keyword: "tensor g2", roast: "Tensor G2? Google coba jadi Apple, tapi malah jadi badut!" },
-        { keyword: "tensor", roast: "Tensor? Google bikin chipset sendiri, tapi tetep aja kalah sama kalkulator Casio!" }
+        { keyword: "snapdragon 8 gen 2", roast: "Snapdragon 8 Gen 2? Canggih sih, tapi lu cuma pake buat TikTok doang kan? Mending beli otak baru deh!" },
+        { keyword: "snapdragon 8+ gen 1", roast: "Snapdragon 8+ Gen 1? Panas kali tuh, kayak otak lu pas mikir! Bisa buat masak telor di atasnya!" },
+        { keyword: "snapdragon 888", roast: "Snapdragon 888? Baterai abis secepat harapan ortu lu ke elu!" },
+        { keyword: "snapdragon 870", roast: "Snapdragon 870? Kamera malem? Gelap kayak masa depan lu! Mending jadi tukang obat!" },
+        { keyword: "snapdragon 765g", roast: "Snapdragon 765G? 5G sih, tapi main ML aja lag! Kayak hubungan lu, ga stabil!" },
+        { keyword: "snapdragon 680", roast: "Snapdragon 680? Wi-Fi lemot kayak otak lu! Mending pake merpati pos aja sekalian!" },
+        { keyword: "dimensity 9000+", roast: "Dimensity 9000+? Panas? Kayak lu abis lari maraton padahal cuma buka Facebook! Otak lu aja ga sepanas itu!" },
+        { keyword: "dimensity 8100", roast: "Dimensity 8100? AI-nya lebih pinter dari lu sih! Mending lu jadi asisten virtualnya aja deh!" },
+        { keyword: "dimensity 1200", roast: "Dimensity 1200? 5G sih, tapi main PUBG kayak main di PowerPoint! Mending main ular-ularan di Nokia 3310 deh lu!" },
+        { keyword: "helio g95", roast: "Helio G95? Main game aja kayak masak gorengan, panas mampus! Sekalian aja lu jualan cireng pake HP ini!" },
+        { keyword: "helio g85", roast: "Helio G85? Overheat? Sekalian aja lu pake buat setrika baju! Lebih berguna!" },
+        { keyword: "exynos 2200", roast: "Exynos 2200? Banyak bacot doang, aslinya ampas! Kayak janji lu ke pacar!" },
+        { keyword: "exynos 1280", roast: "Exynos 1280? Multitasking? Yang ada multi-crash! Kayak hidup lu, berantakan!" },
+        { keyword: "kirin 9000", roast: "Kirin 9000? Pendingin? Ada, tapi cuma buat pajangan! Kayak gelar sarjana lu!" },
+        { keyword: "kirin 990", roast: "Kirin 990? Dulu top, sekarang flop kayak karir lu! Mending jual cilok aja deh!" },
+        { keyword: "a16 bionic", roast: "A16 Bionic? Canggih sih, tapi sayang yang make goblok! Kayak kasih Ferrari ke monyet!" },
+        { keyword: "a15 bionic", roast: "A15 Bionic? Ngaku-ngaku kenceng, tapi buka YouTube aja nge-lag! Kayak lu, ngaku-ngaku sukses tapi masih ngutang!" },
+        { keyword: "a14 bionic", roast: "A14 Bionic? Mahal sih, tapi lu tetep aja gaptek! Mending beli sebungkus Indomie, lebih berfaedah!" },
+        { keyword: "tensor g2", roast: "Tensor G2? Google coba jadi Apple, tapi malah jadi badut! Kayak lu sok-sokan jadi businessman!" },
+        { keyword: "tensor", roast: "Tensor? Google bikin chipset sendiri, tapi tetep aja kalah sama kalkulator Casio! Mending lu pake sempoa aja deh!" },
+        { keyword: "snapdragon 8 gen 1", roast: "Snapdragon 8 Gen 1? Katanya kenceng, tapi buka browser aja lemot! Kayak janji lu, cuma di mulut doang!" },
+        { keyword: "snapdragon 778g", roast: "Snapdragon 778G? Middle-class? Middle-class dari hongkong! Lebih cocok middle-crash!" },
+        { keyword: "snapdragon 695", roast: "Snapdragon 695? 5G sih, tapi download 1MB aja sejam! Kayak lu, lambat loading!" },
+        { keyword: "dimensity 8000", roast: "Dimensity 8000? 5nm? Yang 5nm itu otak lu kali! Chipset bagus, tapi sayang dipake ama orang bego!" },
+        { keyword: "dimensity 920", roast: "Dimensity 920? AI Camera? Yang ada Artifisial Idiot! Selfie lu tetep aja jelek!" },
+        { keyword: "helio g96", roast: "Helio G96? Gaming? PAC-MAN aja lag kali! Mending main congklak aja lu!" },
+        { keyword: "unisoc t612", roast: "Unisoc T612? Unisoc? Uni-sock kali! Kayak kaos kaki bau lu!" },
+        { keyword: "mediatek mt6833", roast: "MediaTek MT6833? Nomor togel apa tuh? Mending dipake buat beli kuota aja deh!" },
+        { keyword: "snapdragon 720g", roast: "Snapdragon 720G? G for Garbage kali ya? Cocok banget sama lu!" },
+        { keyword: "exynos 850", roast: "Exynos 850? 850 tahun yang lalu kali ya dibuatnya? Sesuai sama cara pikir lu!" },
     ];
     
     const chipsetRoast = chipsetRoasts.find(c => chipset.toLowerCase().includes(c.keyword));
@@ -286,7 +296,7 @@
     } else if (memory < 512) {
         roastText += ` Memori internal ${memory}GB? Wah, sudah siap jadi tempat sampah digital ya?`;
     } else {
-        roastText += ` Memori internal ${memory}GB? Astaga, lu mau simpan seluruh internet di sini?`;
+        roastText += ` Memori internal ${memory}GB? Astaga, lu mau namatin tukang bubur naik haji?`;
     }
     
     const roastingTextElement = document.getElementById('roastingText');
