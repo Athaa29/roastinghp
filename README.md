@@ -12,13 +12,6 @@ Aplikasi ini dirancang untuk memberikan hiburan dengan cara menyajikan komentar 
 - Mendapatkan roasting yang lucu berdasarkan spesifikasi yang dimasukkan.
 - Responsif dan dapat diakses di perangkat mobile.
 
-## Cara Menggunakan
-
-1. Buka aplikasi di browser Anda.
-2. Pilih merk HP dari dropdown.
-3. Masukkan spesifikasi HP seperti seri, chipset, RAM, baterai, kamera, dan memori internal.
-4. Klik tombol "Roast Me!" untuk mendapatkan roasting lucu tentang ponsel Anda.
-
 ## Kontribusi
 
 Jika Anda ingin berkontribusi pada proyek ini, silakan buat issue atau pull request di repositori ini.
