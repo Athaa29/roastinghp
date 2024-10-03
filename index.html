@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roasting HP</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Ubuntu:wght@400;700&display=swap');
+
+            body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            height: 100%;
+            overflow-x: hidden;
+            animation: backgroundAnimation 8s infinite alternate;
+            background-color: #f5f7fa; 
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-color: #f5f7fa; }
+            50% { background-color: #e0eafc; }
+            100% { background-color: #c3cfe2; }
+        }
+
+        .container {
+            max-width: 500px; 
+            margin: 50px auto; 
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: fadeInUp 0.8s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .title {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #007bff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: slideIn 0.8s ease-in-out;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Roasting text styling */
+        #roastingText {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #roastingText.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .title {
+                font-size: 32px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Roasting HP</h1>
+        <p class="subtitle">Masukkan spesifikasi HP yang ingin di-roast!</p>
+        <form id="roastForm">
+            <div class="input-group">
+                <label for="brand">Merk HP:</label>
+                <select id="brand" required>
+                    <option value="" disabled selected>Pilih Merk HP</option>
+                    <option value="samsung">Samsung</option>
+                    <option value="xiaomi">Xiaomi</option>
+                    <option value="oppo">Oppo</option>
+                    <option value="vivo">Vivo</option>
+                    <option value="apple">Apple</option>
+                    <option value="huawei">Huawei</option>
+                    <option value="oneplus">OnePlus</option>
+                    <option value="realme">Realme</option>
+                    <option value="nokia">Nokia</option>
+                    <option value="asus">Asus</option>
+                    <option value="lg">LG</option>
+                    <option value="blackberry">Blackberry</option>
+                    <option value="zte">ZTE</option>
+                    <option value="poco">Poco</option>
+                    <option value="motorola">Motorola</option>
+                    <option value="tecno">Tecno</option>
+                    <option value="infinix">Infinix</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="series">Seri HP:</label>
+                <input type="text" id="series" placeholder="Contoh: A54, M3 Pro" required>
+            </div>
+            <div class="input-group">
+                <label for="chipset">Chipset:</label>
+                <input type="text" id="chipset" placeholder="Contoh: Snapdragon 888" required>
+            </div>
+            <div class="input-group">
+                <label for="ram">RAM (GB):</label>
+                <input type="number" id="ram" min="1" max="16" required>
+            </div>
+            <div class="input-group">
+                <label for="battery">Baterai (mAh):</label>
+                <input type="number" id="battery" min="1000" required>
+            </div>
+            <div class="input-group">
+                <label for="camera">Kamera (MP):</label>
+                <input type="number" id="camera" min="1" required>
+            </div>
+            <div class="input-group">
+                <label for="memory">Memori Internal (GB):</label>
+                <input type="number" id="memory" min="16" required>
+             </div>
+            <button type="submit">Roast Me!</button>
+        </form>
+        <div id="roastingText"></div>
+    </div>
+
+    <script>
+    document.getElementById('roastForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const brand = document.getElementById('brand').value;
+    const series = document.getElementById('series').value;
+    const chipset = document.getElementById('chipset').value;
+    const ram = parseInt(document.getElementById('ram').value);
+    const battery = parseInt(document.getElementById('battery').value);
+    const camera = parseInt(document.getElementById('camera').value);
+    const memory = parseInt(document.getElementById('memory').value);
+    
+    let roastText = `Nih roastingnya ${brand} ${series}: `;
+    
+    const brandRoasts = {
+        'samsung': "Samsung? Banyak pilihan, tapi sering bikin bingung mana yang terbaik!",
+        'xiaomi': "Xiaomi? Harga miring, tapi fitur yang bikin pusing!",
+        'oppo': "Oppo? Berharap bisa selfie cantik, tapi hasilnya selalu buram!",
+        'vivo': "Vivo? Mungkin foto selfie-nya oke, tapi siapa peduli dengan performanya?",
+        'apple': "Apple? Harganya setinggi langit, tapi fiturnya gitu-gitu aja!",
+        'huawei': "Huawei? Dulu kuat, sekarang kalah saing!",
+        'oneplus': "OnePlus? Memang cepat, tapi kenapa harganya ga ngotak?",
+        'realme': "Realme? Membuat ponsel murah, tapi kualitasnya juga murahan!",
+        'nokia': "Nokia? Legendaris, tapi tak pernah bisa move on dari ponsel jadulnya!",
+        'asus': "Asus? Laptopnya jago, tapi smartphone-nya? Cuma sekadar coba-coba!",
+        'lg': "LG? Dulu terkenal, sekarang hanya tinggal kenangan di smartphone!",
+        'blackberry': "Blackberry? Dulu populer, sekarang jadi fosil",
+        'zte': "ZTE? Mungkin banyak fitur, tapi jarang yang tau",
+        'poco': "Poco? Spesifikasi wah, tapi kualitasnya bikin was-was!",
+        'motorola': "Motorola? Coba kembali ke jaman ponsel lipat, habitat lu disitu!",
+        'tecno': "Tecno? Harganya bikin senyum, tapi performanya bikin nangis abis!",
+        'infinix': "Infinix? Si paling Kingfinix hasil akhirnya selalu bikin bingung!"
+    };
+    
+    roastText += brandRoasts[brand] || "Merk tidak dikenal, atau hanya sekadar merek yang tidak perlu dipikirkan!";
+    
+    const chipsetRoasts = [
+        { keyword: "snapdragon 8 gen 2", roast: "Snapdragon 8 Gen 2? Kencang sih, tapi dompetmu juga kencang kosongnya!" },
+        { keyword: "snapdragon 8+ gen 1", roast: "Snapdragon 8+ Gen 1? Upgrade minimal, tapi harganya maksimal!" },
+        { keyword: "snapdragon 888", roast: "Snapdragon 888? Kencang, tapi sering overheating seperti penggemar berat!" },
+        { keyword: "snapdragon 870", roast: "Snapdragon 870? Hanya versi sedikit ditingkatkan dari 865, masih bikin kamu menunggu!" },
+        { keyword: "snapdragon 765g", roast: "Snapdragon 765G? 5G, tapi apakah performanya cukup untuk gaming?" },
+        { keyword: "snapdragon 680", roast: "Snapdragon 680? Chipset sejuta umat!" },
+        { keyword: "dimensity 9000+", roast: "Dimensity 9000+? MediaTek coba saingi Qualcomm, tapi masih kalah nama!" },
+        { keyword: "dimensity 8100", roast: "Dimensity 8100? Lumayan kencang, tapi optimalisasi game-nya masih dipertanyakan!" },
+        { keyword: "dimensity 1200", roast: "Dimensity 1200? Mungkin 5G, tapi jangan berharap untuk bertahan lama!" },
+        { keyword: "helio g95", roast: "Helio G95? Menjanjikan, tapi sering bikin kamu frustasi dengan lag!" },
+        { keyword: "helio g85", roast: "Helio G85? Cukup untuk media sosial, tapi gaming? Siap-siap ngefreeze!" },
+        { keyword: "exynos 2200", roast: "Exynos 2200? Janji performa tinggi, kenyataannya masih mengecewakan!" },
+        { keyword: "exynos 1280", roast: "Exynos 1280? Samsung coba bikin chipset murah, tapi performanya juga murah!" },
+        { keyword: "kirin 9000", roast: "Kirin 9000? Mungkin bagus di luar, tapi sulit bertahan di dalam!" },
+        { keyword: "kirin 990", roast: "Kirin 990? Dulu harapan, sekarang tertinggal!" },
+        { keyword: "a16 bionic", roast: "A16 Bionic? Makin cepat, makin mahal, makin sedikit yang mampu!" },
+        { keyword: "a15 bionic", roast: "A15 Bionic? Mungkin lebih cepat, tapi emang harga sepadan?" },
+        { keyword: "a14 bionic", roast: "A14 Bionic? Iya, performanya kencang, tapi harganya bikin dompet menangis!" },
+        { keyword: "tensor g2", roast: "Tensor G2? Google coba jadi Apple, tapi ketinggalan performanya!" },
+        { keyword: "tensor", roast: "Tensor? Google bikin chipset sendiri, tapi masih kalah sama Snapdragon!" }
+    ];
+    
+    const chipsetRoast = chipsetRoasts.find(c => chipset.toLowerCase().includes(c.keyword));
+    roastText += chipsetRoast ? ` ${chipsetRoast.roast}` : " Chipset tidak dikenal? Mungkin lebih baik kembali ke laptop!";
+    
+    if (ram < 4) {
+        roastText += ` Dengan RAM hanya ${ram}GB? Situ mau meditasi? nunggu loading selama itu?`;
+    } else if (ram < 8) {
+        roastText += ` RAM ${ram}GB? Kurang buat multitasking apalagi gaming!`;
+    } else if (ram < 12) {
+        roastText += ` RAM ${ram}GB? Oke, tapi jangan berharap bisa buka 100 tab Chrome!`;
+    } else {
+        roastText += ` RAM ${ram}GB? Wow, banyak sekali! Apa kamu mau menjalankan server di HP?`;
+    }
+    
+    if (battery < 3000) {
+        roastText += ` Baterai hanya ${battery}mAh? Sekalian bawa powerbank 1 juta mAh buat ngecas hp lu!!`;
+    } else if (battery < 4000) {
+        roastText += ` Baterai ${battery}mAh? Ga sampe 3 jam udah lowbat buat ngegame!!`;
+    } else if (battery < 5000) {
+        roastText += ` Baterai ${battery}mAh? Lumayan, tapi masih kalah sama powerbank!`;
+    } else {
+        roastText += ` Baterai ${battery}mAh? Wow, HP atau batu bata nih?`;
+    }
+    
+    if (camera < 12) {
+        roastText += ` Kamera ${camera}MP? Mungkin lebih baik menggunakan ponsel jadul!`;
+    } else if (camera < 48) {
+        roastText += ` Kamera ${camera}MP? Lumayan, tapi jangan berharap bisa saingi DSLR!`;
+    } else if (camera < 108) {
+        roastText += ` Kamera ${camera}MP? Banyak megapixel, tapi kualitas? Belum tentu!`;
+    } else {
+        roastText += ` Kamera ${camera}MP? Wow, kamu fotografer atau cuma suka pamer spek?`;
+    }
+    
+    if (memory < 32) {
+        roastText += ` Memori internal ${memory}GB? Apa ini, HP dari jaman batu?`;
+    } else if (memory < 64) {
+        roastText += ` Memori internal ${memory}GB? Cukup buat install 2-3 game doang, pilih yang mana nih?`;
+    } else if (memory < 128) {
+        roastText += ` Memori internal ${memory}GB? Lumayan, tapi jangan harap bisa simpan koleksi film!`;
+    } else if (memory < 256) {
+        roastText += ` Memori internal ${memory}GB? Oke juga, tapi tetap saja bakal penuh sama meme!`;
+    } else if (memory < 512) {
+        roastText += ` Memori internal ${memory}GB? Wah, sudah siap jadi tempat sampah digital ya?`;
+    } else {
+        roastText += ` Memori internal ${memory}GB? Astaga, kamu mau simpan seluruh internet di sini?`;
+    }
+    
+    const roastingTextElement = document.getElementById('roastingText');
+    roastingTextElement.textContent = roastText;
+    roastingTextElement.classList.add('show');
+});
+  </script>
+ </body>
+/html>
