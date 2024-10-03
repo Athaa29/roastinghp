@@ -24,4 +24,4 @@ Proyek ini dilisensikan di bawah MIT License. Lihat file [LICENSE](LICENSE) untu
 
 Untuk pertanyaan atau informasi lebih lanjut, silakan hubungi:
 
-- [Nama Anda](mailto:athallahputra29@gmail.com)
+- [Athaa29](mailto:athallahputra29@gmail.com)
